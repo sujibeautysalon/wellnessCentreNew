@@ -36,30 +36,6 @@ yarn-debug.log
 yarn-error.log
 .pnpm-debug.log
 
-# Environment variables and secrets
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-*.env
-.secret
-secrets.json
-secrets.yaml
-secrets.yml
-*_key
-*_keys
-*_secret
-*_secrets
-*_password
-*password*
-*passwords*
-*.pem
-*.key
-*.cert
-*.crt
-*.ca-bundle
-
 # Build artifacts
 /frontend/frontend/dist/
 /backend/staticfiles/
@@ -86,18 +62,6 @@ htmlcov/
 .pytest_cache/
 coverage.xml
 *.cover
-
-# API keys and service accounts
-*_api_key*
-*apikey*
-*_service_account*
-firebase-admin*.json
-google-services.json
-GoogleService-Info.plist
-aws-credentials.json
-aws-config.json
-*oauth*
-*client_secret*
 
 # Local development files
 .env.*

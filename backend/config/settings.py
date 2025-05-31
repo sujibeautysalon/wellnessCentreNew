@@ -22,7 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-cthbm4+gu58*0ti&g%fo2^q(phxqt!f(4^26rl&n=&a==z-nnj')
+# This should be set in environment variable for production
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
+# If SECRET_KEY is not set in environment variables, generate a random one
+# This is only suitable for development
+if not SECRET_KEY:
+    import random
+    chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+    SECRET_KEY = ''.join(random.choice(chars) for i in range(50))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
@@ -102,10 +110,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 if os.environ.get('DATABASE_URL'):
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(default=os.environ['DATABASE_URL'])
-    }
+    try:
+        import dj_database_url
+        DATABASES = {
+            'default': dj_database_url.config(default=os.environ['DATABASE_URL'])
+        }
+    except ImportError:
+        # If dj_database_url is not installed, fall back to default database settings
+        pass
 else:
     DATABASES = {
         'default': {
