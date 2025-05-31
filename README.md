@@ -44,8 +44,8 @@ A full-stack wellness center management system built with Django 5 + REST Framew
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/wellness-center.git
-   cd wellness-center
+   git clone https://github.com/sujibeautysalon/wellnessCentreNew.git
+   cd wellnessCentreNew
    ```
 
 2. Start the development environment:
