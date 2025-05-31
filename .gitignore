@@ -35,11 +35,30 @@ npm-debug.log
 yarn-debug.log
 yarn-error.log
 .pnpm-debug.log
+
+# Environment variables and secrets
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+*.env
+.secret
+secrets.json
+secrets.yaml
+secrets.yml
+*_key
+*_keys
+*_secret
+*_secrets
+*_password
+*password*
+*passwords*
+*.pem
+*.key
+*.cert
+*.crt
+*.ca-bundle
 
 # Build artifacts
 /frontend/frontend/dist/
@@ -68,7 +87,41 @@ htmlcov/
 coverage.xml
 *.cover
 
+# API keys and service accounts
+*_api_key*
+*apikey*
+*_service_account*
+firebase-admin*.json
+google-services.json
+GoogleService-Info.plist
+aws-credentials.json
+aws-config.json
+*oauth*
+*client_secret*
+
 # Local development files
 .env.*
 !.env.example
 .envrc
+config.local.js
+config.dev.js
+config.development.js
+config.prod.js
+config.production.js
+config.staging.js
+config.test.js
+settings.local.*
+settings.dev.*
+settings.development.*
+settings.prod.*
+settings.production.*
+settings.staging.*
+settings.test.*
+credentials.json
+credentials.yaml
+credentials.yml
+auth.json
+auth.yaml
+auth.yml
+auth_config.json
+*config.local.*
