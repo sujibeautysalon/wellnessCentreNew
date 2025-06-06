@@ -1,47 +1,12 @@
-# Wellness Centre Frontend
+# React + Vite
 
-This is the frontend application for the Wellness Centre platform.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Technology Stack
+Currently, two official plugins are available:
 
-- React 18 with Vite
-- Tailwind CSS for styling
-- React Router for navigation
-- React Query for data fetching
-- React Hook Form for form handling
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Development
+## Expanding the ESLint configuration
 
-To start the development server:
-
-```bash
-npm run dev
-```
-
-## Production Build
-
-To create a production build:
-
-```bash
-npm run build
-```
-
-## Docker
-
-This application can be run in Docker using the provided Dockerfile:
-
-```bash
-docker build -t wellness-centre-frontend .
-docker run -p 3000:80 wellness-centre-frontend
-```
-
-## Project Structure
-
-- `/frontend` - The main React application
-  - `/src` - Source code
-    - `/api` - API client and service functions
-    - `/components` - Reusable UI components
-    - `/context` - React context providers
-    - `/hooks` - Custom hooks
-    - `/pages` - Route components
-    - `/utils` - Helper functions and utilities
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
