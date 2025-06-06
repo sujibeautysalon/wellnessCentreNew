@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
 
-from apps.core.permissions import IsAdminOrTherapist, IsOwner
+from apps.core.permissions import IsAdminUser, IsTherapist, IsOwnerOrAdmin
 from apps.engagement.models import (
     Campaign, CampaignRecipient, Notification, FeedbackForm, 
     FeedbackResponse, Loyalty, LoyaltyTransaction, Referral
