@@ -1,61 +1,46 @@
 # Django and Core Packages
-Django==5.0.16
+Django==5.0.14
 djangorestframework==3.15.2
 djangorestframework-simplejwt==5.4.0
-
 # Database
 dj-database-url==2.1.0
 psycopg2-binary==2.9.9
-
 # Configuration
 python-decouple==3.8
-
 # Media/Image Processing
 Pillow==10.4.0
-
 # API Documentation
 drf-yasg==1.21.7
-
 # CORS
 django-cors-headers==4.3.1
-
 # Celery (Task Queue) - Updated versions for Django 5.0 compatibility
 celery==5.3.7
 redis==5.2.0
 django-celery-beat==2.7.0
 django-celery-results==2.5.1
-
 # File Storage
 django-storages==1.14.4
-
 # Testing
 coverage==7.6.9
 pytest==8.3.4
 pytest-django==4.9.0
 pytest-cov==6.0.0
-
 # PDF Generation
 WeasyPrint==62.3
-
 # Static Files
 whitenoise==6.8.2
-
 # Production Server
 gunicorn==23.0.0
-
 # Third-party Services
 stripe==11.2.0
 twilio==9.3.7
-
 # Utilities
 Faker==33.1.0
 django-filter==24.3
 requests==2.32.3
 PyJWT==2.10.1
-
 # Health Checks
 django-health-check==3.18.3
-
 # Data Analysis
 pandas==2.2.3
 matplotlib==3.9.3
