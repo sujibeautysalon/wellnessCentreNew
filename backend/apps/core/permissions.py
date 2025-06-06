@@ -1,6 +1,5 @@
 from rest_framework import permissions
 
-
 class IsOwnerOrAdmin(permissions.BasePermission):
     """
     Custom permission to only allow owners of an object or admins to access it.
@@ -18,7 +17,6 @@ class IsOwnerOrAdmin(permissions.BasePermission):
         # If the object is a user, check if it's the same user
         return obj == request.user
 
-
 class IsAdminUser(permissions.BasePermission):
     """
     Allow access only to admin users.
@@ -26,7 +24,6 @@ class IsAdminUser(permissions.BasePermission):
     
     def has_permission(self, request, view):
         return bool(request.user and (request.user.is_staff or request.user.role == 'admin'))
-
 
 class IsTherapist(permissions.BasePermission):
     """
@@ -36,7 +33,6 @@ class IsTherapist(permissions.BasePermission):
     def has_permission(self, request, view):
         return bool(request.user and request.user.role == 'therapist')
 
-
 class IsCustomer(permissions.BasePermission):
     """
     Allow access only to customer users.
@@ -45,7 +41,6 @@ class IsCustomer(permissions.BasePermission):
     def has_permission(self, request, view):
         return bool(request.user and request.user.role == 'customer')
 
-
 class ReadOnly(permissions.BasePermission):
     """
     Allow read-only access to anyone.
@@ -53,3 +48,35 @@ class ReadOnly(permissions.BasePermission):
     
     def has_permission(self, request, view):
         return request.method in permissions.SAFE_METHODS
+
+# ADD THESE MISSING PERMISSION CLASSES:
+
+class IsAdminOrTherapist(permissions.BasePermission):
+    """
+    Allow access only to admin or therapist users.
+    """
+    
+    def has_permission(self, request, view):
+        return bool(request.user and (
+            request.user.is_staff or 
+            request.user.role == 'admin' or 
+            request.user.role == 'therapist'
+        ))
+
+class IsOwner(permissions.BasePermission):
+    """
+    Custom permission to only allow owners of an object to edit it.
+    """
+    
+    def has_object_permission(self, request, view, obj):
+        # Read permissions are allowed to any request,
+        # so we'll always allow GET, HEAD or OPTIONS requests.
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        
+        # Write permissions are only allowed to the owner of the object.
+        if hasattr(obj, 'user'):
+            return obj.user == request.user
+        
+        # If the object is a user, check if it's the same user
+        return obj == request.user
